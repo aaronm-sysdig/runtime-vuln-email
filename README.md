@@ -40,7 +40,7 @@ settings:
 
 config: # the date for 'yesterday' will be appended to the URLS specified below via the &from= and &to=
   - url: https://app.au1.sysdig.com/secure/#/vulnerabilities/overview/runtime?filter=context+%3D+%22runtime%22&cve=vulnSeverity+in+%28%22Critical%22%2C+%22High%22%29+and+vulnIsRunning+%3D+true
-    email: miles3719@gmail.com
+    email: myemailaccount@gmail.com
     waits: #Configure XPATH waits so that the screenshot is as you want (ie: the data is visible).  These are passed into visibility_of_element_located
       - 1: //div[@data-test="collapsible-block-open"]//div[text()="Policies"]
         2: //div[@title="Namespace"]//span[text()="Namespace"]
