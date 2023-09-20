@@ -77,20 +77,21 @@ def main():
     logging.basicConfig(level=getattr(logging, 'INFO'),
                         format='%(asctime)s - %(levelname)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
+    str_username = os.environ.get('SYSDIG_USERNAME')
+    str_password = os.environ.get('SYSDIG_PASSWORD')
+    str_email_server_password = os.environ.get('EMAIL_SERVER_PASSWORD')
+    if str_username is None \
+            or str_password is None \
+            or str_email_server_password is None:
+        print('Please ensure SYSDIG_USERNAME, SYSDIG_PASSWORD and EMAIL_SERVER_PASSWORD environment variables are set')
+        exit(1)
 
     for index, item in enumerate(obj_config['config']):
         logging.info(f"Processing item no: {index}")
         logging.info(f"Processing URL:{item['url']}")
-        logging.info(f"Processing Email:{item['url']}")
+        logging.info(f"Processing Email:{item['email']}")
         str_vuln_url = item['url']
-        str_username = os.environ.get('SYSDIG_USERNAME')
-        str_password = os.environ.get('SYSDIG_PASSWORD')
-        str_email_server_password = os.environ.get('EMAIL_SERVER_PASSWORD')
 
-        if str_username is None \
-                or str_password is None\
-                or str_email_server_password is None:
-            print('Please ensure SYSDIG_USERNAME, SYSDIG_PASSWORD and EMAIL_SERVER_PASSWORD environment variables are set')
 
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--headless")
