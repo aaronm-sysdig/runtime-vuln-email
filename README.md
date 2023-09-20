@@ -9,6 +9,12 @@ A selenium based system that takes a screenshot of your sysdig UI and emails it.
 Simply run
 `python runtime-vuln-email.py --config <path to config file>`
 
+# Pre-requisites
+alongsisde `requirements.txt` from a python perspective, you also need to install `chrome-driver` and `chrome` (or `chromium`) for your target platform.  Chromedriver can be obtained from `https://chromedriver.chromium.org/downloads`
+
+# Containerisation
+a sample `Dockerfile` is provided which builds the necessary requirements from above
+
 # Configuration
 Achieved via a yaml file.  Items speak for themselves for the most part but some items worth mentioning
 
