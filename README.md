@@ -32,7 +32,7 @@ settings:
     height: 850
   email:
    server: smtp.gmail.com #password needs to be an environment variable called EMAIL_SERVER_PASSWORD
-   username: miles3719@gmail.com
+   username: myemailaccount@gmail.com
    port: 587
    from: sysdig@aamiles.org
    subject: Runtime Vulnerabilities Screenshot
