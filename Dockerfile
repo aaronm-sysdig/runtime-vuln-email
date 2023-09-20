@@ -10,7 +10,7 @@ RUN mv ./chromedriver-linux64/chromedriver /usr/bin/chromedriver
 RUN chown root:root /usr/bin/chromedriver
 RUN chmod +x /usr/bin/chromedriver
 
-# Copy your script into the container
+# Copy script into the container.  Just set your configuration file as appropriate, or rebuild container to pass in... up to you
 COPY runtimeVulnEmail.py /app/runtimeVulnEmail.py
 COPY runtimeVulnEmail-config.yaml /app/runtimeVulnEmail-config.yaml
 
