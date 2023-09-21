@@ -9,11 +9,19 @@ A selenium based system that takes a screenshot of your sysdig UI and emails it.
 Simply run
 `python runtime-vuln-email.py --config <path to config file>`
 
+# Docker Example
+A dockerfile is provided for those wishing to containerise (tested on x86 Only, not ARM at this stage).  
+Some points on the below
+1) `CONTAINER` environment variable to to tell script to run chrome from a container, without this it will crash and not start
+2) Config file is expected at /app/config.yaml
+
+Run with
+```
+docker run -e CONTAINER=true -e EMAIL_SERVER_PASSWORD="<EmailServerPassword>" -e SYSDIG_PASSWORD="<SysdigPassword>" -e SYSDIG_USERNAME="<SysdigUsername>" -v /home/aaron/runtime-vuln-email/runtimeVulnEmail-config.yaml:/app/config.yaml runtime-vuln-email:1
+```
+
 # Pre-requisites
 alongsisde `requirements.txt` from a python perspective, you also need to install `chrome-driver` and `chrome` (or `chromium`) for your target platform.  Chromedriver can be obtained from `https://chromedriver.chromium.org/downloads`
-
-# Containerisation
-a sample `Dockerfile` is provided which builds the necessary requirements from above
 
 # Configuration
 Achieved via a yaml file.  Items speak for themselves for the most part but some items worth mentioning
