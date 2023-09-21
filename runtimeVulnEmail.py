@@ -92,9 +92,11 @@ def main():
         logging.info(f"Processing Email:{item['email']}")
         str_vuln_url = item['url']
 
-
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--headless")
+        if os.environ.get('CONTAINER') is not None:
+            chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument(f"--window-size={obj_config['settings']['screen']['width']}x{obj_config['settings']['screen']['height']}")
         driver = webdriver.Chrome(options=chrome_options)
 
